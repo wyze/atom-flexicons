@@ -1,0 +1,7 @@
+.nyc_output
+coverage
+node_modules
+styles/_settings.less
+styles/flexicons.less
+.DS_Store
+npm-debug.log

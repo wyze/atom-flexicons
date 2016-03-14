@@ -1,0 +1,201 @@
+@import "ui-variables";
+@import "_overrides";
+@import "_settings";
+
+// Selectors
+
+.ends-with ( @match, @icon, @overlay: '' ) {
+  tabs-bar tabs-tab .title[data-name$="@{match}"],
+  .tab-bar .tab .title[data-name$="@{match}"] {
+    .tab-style(@icon, @overlay);
+  }
+  .name.icon[data-name$="@{match}"] {
+    .tree-style(@icon, @overlay);
+  }
+  .fuzzy-finder .icon[data-name$="@{match}"] {
+    .fuzzy-finder-style(@icon, @overlay);
+  }
+}
+
+.in-path ( @match, @icon, @overlay: '' ) {
+  tabs-bar tabs-tab .title[data-path*="@{match}"],
+  .tab-bar .tab .title[data-path*="@{match}"] {
+    .tab-style(@icon, @overlay);
+  }
+  .name.icon[data-path*="@{match}"] {
+    .tree-style(@icon, @overlay);
+  }
+  .fuzzy-finder .icon[data-name*="@{match}"] {
+    .fuzzy-finder-style(@icon, @overlay);
+  }
+}
+
+.is ( @match, @icon, @overlay: '' ) {
+  tabs-bar tabs-tab .title[data-name="@{match}"],
+  .tab-bar .tab .title[data-name="@{match}"] {
+    .tab-style(@icon, @overlay);
+  }
+  .name.icon[data-name="@{match}"] {
+    .tree-style(@icon, @overlay);
+  }
+  .fuzzy-finder .icon[data-name="@{match}"] {
+    .fuzzy-finder-style(@icon, @overlay);
+  }
+}
+
+.starts-with ( @match, @icon, @overlay: '' ) {
+  tabs-bar tabs-tab .title[data-name^="@{match}"],
+  .tab-bar .tab .title[data-name^="@{match}"] {
+    .tab-style(@icon, @overlay);
+  }
+  .name.icon[data-name^="@{match}"] {
+    .tree-style(@icon, @overlay);
+  }
+  .fuzzy-finder .icon[data-name^="@{match}"] {
+    .fuzzy-finder-style(@icon, @overlay);
+  }
+}
+
+
+// Helper
+
+.linear-gradient ( @icon, @color, @alpha: 0.7 ) {
+  @lcolor: rgba(
+    red(@color),
+    green(@color),
+    blue(@color),
+    @alpha
+  );
+
+  background:
+    linear-gradient(@lcolor, @lcolor),
+    url('@{icon}') 0 0 no-repeat;
+  background-size: contain;
+}
+
+
+// Styles
+
+.tab-style ( @icon, @overlay: '' ) {
+  &:before {
+    content: "" !important;
+    width: 14px;
+    height: 14px;
+    margin-right: 6px;
+    opacity: 1;
+    display: inline-flex;
+    vertical-align: middle;
+    margin-top: -2px;
+  }
+
+  &:before when not ( iscolor(@overlay) ) {
+    background: url('@{icon}') 0 0 no-repeat;
+    background-size: contain;
+    .override(@icon, 'tab');
+  }
+
+  &:before when ( iscolor(@overlay) ), ( @muted ) {
+    -webkit-mask: url('@{icon}') 0 0 no-repeat;
+    -webkit-mask-size: contain;
+    .override(@icon, 'tab');
+  }
+
+  &:before when ( iscolor(@overlay) ) {
+    // TODO: Implement alpha channels for overlay
+    .linear-gradient(@icon, @overlay, 1);
+  }
+
+  &:before when ( @muted ) {
+    .linear-gradient(@icon, @text-color);
+  }
+}
+
+.tree-style ( @icon, @overlay: '' ) {
+  &.icon-file-text,
+  &.icon-file-media,
+  &.icon-book {
+    &:before {
+      content: "" !important;
+      width: 14px;
+      height: 14px;
+      float: left;
+      margin: 4px 4px 0 0;
+    }
+
+    &:before when not ( iscolor(@overlay) ) {
+      background: url('@{icon}') 0 0 no-repeat;
+      background-size: contain;
+      .override(@icon);
+    }
+
+    &:before when ( iscolor(@overlay) ), ( @muted ) {
+      -webkit-mask: url('@{icon}') 0 0 no-repeat;
+      -webkit-mask-size: contain;
+      .override(@icon);
+    }
+
+    &:before when ( iscolor(@overlay) ) {
+      // TODO: Implement alpha channels for overlay
+      .linear-gradient(@icon, @overlay, 1);
+    }
+
+    &:before when ( @muted ) {
+      .linear-gradient(@icon, @text-color);
+    }
+
+    &:before when ( @status ) {
+      .file.status-added &,
+      .file.status-modified &,
+      .file.status-ignored & {
+        -webkit-mask: url('@{icon}') 0 0 no-repeat;
+        -webkit-mask-size: contain;
+      }
+
+      .file.status-added & {
+        .linear-gradient(@icon, @text-color-success);
+      }
+
+      .file.status-modified & {
+        .linear-gradient(@icon, @text-color-modified);
+      }
+
+      .file.status-ignored & {
+        .linear-gradient(@icon, @text-color-ignored);
+      }
+    }
+  }
+}
+
+.fuzzy-finder-style ( @icon, @overlay: '' ) {
+  &:before {
+    content: "" !important;
+    width: 14px;
+    height: 14px;
+    background: url('@{icon}') 0 0 no-repeat;
+    background-size: contain;
+    display: inline-flex;
+    vertical-align: middle;
+    margin-top: -2px;
+  }
+
+  &:before when not ( iscolor(@overlay) ) {
+    background: url('@{icon}') 0 0 no-repeat;
+    background-size: contain;
+    .override(@icon, 'fuzzy-finder');
+  }
+
+  &:before when ( iscolor(@overlay) ), ( @muted ) {
+    -webkit-mask: url('@{icon}') 0 0 no-repeat;
+    -webkit-mask-size: contain;
+    .override(@icon, 'fuzzy-finder');
+  }
+
+  &:before when ( iscolor(@overlay) ) {
+    // TODO: Implement alpha channels for overlay
+    .linear-gradient(@icon, @overlay, 1);
+  }
+
+  &:before when ( @muted ) {
+    .linear-gradient(@icon, @text-color);
+  }
+}
