@@ -32,7 +32,10 @@
     ]
   },
   "eslintConfig": {
-    "extends": "wyze/base"
+    "extends": "wyze/base",
+    "globals": {
+      "atom": true
+    }
   },
   "files": [
     "lib",
