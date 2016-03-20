@@ -55,3 +55,15 @@
     margin-top: 7px;
   }
 }
+
+// JSON
+
+.override ( @icon, @loc: '' ) when ( @icon = @json ) {
+  & when ( @loc = '' ) {
+    margin-top: 6px;
+  }
+
+  & when not ( @loc = '' ) {
+    margin-top: 1px;
+  }
+}
