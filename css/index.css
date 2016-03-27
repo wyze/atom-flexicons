@@ -5,6 +5,7 @@
 @mixin ends json;
 @mixin ends jsx;
 @mixin ends less;
+@mixin ends ls;
 @mixin ends md;
 @mixin ends php;
 @mixin ends sass;
