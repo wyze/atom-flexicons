@@ -10,6 +10,7 @@
 @mixin ends php;
 @mixin ends rs;
 @mixin ends sass;
+@mixin ends swift;
 @mixin ends ts;
 
 @mixin path test;
