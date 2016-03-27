@@ -6,6 +6,7 @@
 @mixin ends less;
 @mixin ends md;
 @mixin ends sass;
+@mixin ends ts;
 
 @mixin path test;
 
