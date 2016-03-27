@@ -10,6 +10,7 @@
 @mixin path test;
 
 @mixin starts git;
+@mixin starts eslintrc;
 
 @mixin is editorconfig;
 @mixin is packagejson;
