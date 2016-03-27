@@ -17,6 +17,7 @@
 
 @mixin starts git;
 @mixin starts eslintrc;
+@mixin starts license;
 
 @mixin is editorconfig;
 @mixin is packagejson;
