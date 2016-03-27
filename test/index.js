@@ -1,6 +1,7 @@
 import {
   activate,
   config,
+  getStatusColors,
   write,
 } from '../lib'
 import test from 'ava'
@@ -13,7 +14,28 @@ test('will activate', t => {
   t.ok(typeof activate === 'function', 'Package does not export a config')
 })
 
-test.todo('getStatusColors')
+test('getStatusColors works', t => {
+  const atom = {
+    styles: {
+      styleElementsBySourcePath: {
+        '~/atom/packages/flexicons/styles/variables.less': {
+          innerHTML: `
+:root {
+  --color: #ffffff;
+}`,
+        },
+      },
+    },
+  }
+
+  // Mock `apm test`
+  global.atom = atom
+
+  const actual = getStatusColors()
+  const expected = [ '#ffffff' ]
+
+  t.same(actual, expected, 'proper colors were not returned')
+})
 
 test('write works', t => {
   // Emulate a file
