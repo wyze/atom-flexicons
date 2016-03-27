@@ -47,7 +47,7 @@ test('activate works', t => {
 
     readSync = () => this.content
 
-    write = content => { this.content = content }
+    writeSync = content => { this.content = content }
   }
 
   const atom = {
@@ -75,6 +75,9 @@ test('activate works', t => {
         callbackFn({ newValue: atom.config.defaultSettings.flexicons }),
     },
     packages: {
+      getLoadedPackage: () => ({
+        reloadStylesheets: () => {},
+      }),
       onDidActivateInitialPackages: callbackFn => callbackFn(),
     },
     styles: {
