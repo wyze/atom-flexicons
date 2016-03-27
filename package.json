@@ -47,7 +47,7 @@
     "atom": ">=1.0.0 <2.0.0"
   },
   "styles": [
-    "flexicons.less"
+    "flexicons.css"
   ],
   "devDependencies": {
     "ava": "^0.13.0",
@@ -61,6 +61,11 @@
     "nyc": "^6.1.1"
   },
   "dependencies": {
-    "lodash.filter": "^4.2.1"
+    "lodash.mapvalues": "^4.2.0",
+    "postcss": "^5.0.19",
+    "postcss-hexrgba": "^0.2.0",
+    "postcss-mixins": "^4.0.1",
+    "postcss-nested": "^1.0.0",
+    "postcss-url": "^5.1.1"
   }
 }

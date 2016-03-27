@@ -1,0 +1,15 @@
+@mixin ends css;
+@mixin ends elm;
+@mixin ends js;
+@mixin ends json;
+@mixin ends jsx;
+@mixin ends less;
+@mixin ends md;
+@mixin ends sass;
+
+@mixin path test;
+
+@mixin starts git;
+
+@mixin is editorconfig;
+@mixin is travisyml;
