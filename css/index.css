@@ -12,4 +12,5 @@
 @mixin starts git;
 
 @mixin is editorconfig;
+@mixin is packagejson;
 @mixin is travisyml;
