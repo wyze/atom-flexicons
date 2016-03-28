@@ -58,6 +58,7 @@
     "codecov.io": "^0.1.6",
     "eslint": "^2.4.0",
     "eslint-config-wyze": "^1.3.0",
+    "lodash.isarray": "^4.0.0",
     "nyc": "^6.1.1"
   },
   "dependencies": {
