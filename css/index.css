@@ -1,6 +1,7 @@
 @mixin ends css;
 @mixin ends elm;
 @mixin ends hs;
+@mixin ends html;
 @mixin ends js;
 @mixin ends json;
 @mixin ends jsx;
