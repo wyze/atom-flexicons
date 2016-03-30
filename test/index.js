@@ -4,6 +4,7 @@ import {
   getStatusColors,
   write,
 } from '../lib'
+import mock from 'mock-require'
 import test from 'ava'
 
 test('has config', t => {
@@ -110,7 +111,8 @@ test('activate works', t => {
   // Mock `apm test`
   global.atom = atom
 
-  activate(null, () => ({ File }))
+  mock('atom', { File })
+  activate()
 
   t.pass()
 })
