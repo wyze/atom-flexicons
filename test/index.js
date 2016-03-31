@@ -1,18 +1,23 @@
+import './helpers'
 import {
   activate,
   config,
+  deactivate,
   getStatusColors,
   write,
 } from '../lib'
-import mock from 'mock-require'
 import test from 'ava'
 
 test('has config', t => {
-  t.ok(typeof config === 'object', 'Package does not export a config')
+  t.ok(typeof config === 'object', 'package does not export config')
 })
 
 test('will activate', t => {
-  t.ok(typeof activate === 'function', 'Package does not export a config')
+  t.ok(typeof activate === 'function', 'package does not export activate')
+})
+
+test('will deactivate', t => {
+  t.ok(typeof deactivate === 'function', 'package does not export deactivate')
 })
 
 test('getStatusColors works', t => {
@@ -111,8 +116,14 @@ test('activate works', t => {
   // Mock `apm test`
   global.atom = atom
 
-  mock('atom', { File })
   activate()
 
   t.pass()
+})
+
+test('deactivate works', t => {
+  const actual = deactivate()
+  const expected = undefined
+
+  t.is(actual, expected, 'deactivate did not return expected')
 })
