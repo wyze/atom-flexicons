@@ -12,6 +12,7 @@
 @mixin ends php;
 @mixin ends rs;
 @mixin ends sass;
+@mixin ends sh;
 @mixin ends styl;
 @mixin ends swift;
 @mixin ends ts;
