@@ -10,6 +10,7 @@
 @mixin ends ls;
 @mixin ends md;
 @mixin ends php;
+@mixin ends py;
 @mixin ends rs;
 @mixin ends sass;
 @mixin ends sh;
