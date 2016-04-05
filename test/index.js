@@ -6,6 +6,7 @@ import {
   getStatusColors,
   write,
 } from '../lib'
+import { join } from 'path'
 import test from 'ava'
 
 test('has config', t => {
@@ -22,6 +23,9 @@ test('will deactivate', t => {
 
 test('getStatusColors works', t => {
   const atom = {
+    config: {
+      get: () => ({ overlay: {} }),
+    },
     styles: {
       styleElementsBySourcePath: {
         '~/atom/packages/flexicons/styles/variables.less': {
@@ -43,25 +47,84 @@ test('getStatusColors works', t => {
   t.same(actual, expected, 'proper colors were not returned')
 })
 
-test('write works', t => {
+test('write works when results are same', t => {
   // Emulate a file
   class File {
-    constructor() {
-      this.content = ''
+    constructor( location, content = '' ) {
+      this.content = content
+      this.path = location
     }
 
-    write = content => { this.content = content }
+    create = () => new Promise(resolve => resolve(true))
+
+    readSync = () => this.content
+
+    writeSync = content => { this.content = content }
   }
-  const inputFile = new File()
-  const outputFile = new File()
 
-  inputFile.write('@mixin ends js;')
+  const path = join(__dirname, '..', 'css', 'index.css')
+  const inputFile = new File(path, 'a { color: #fff }')
+  const outputFile = new File('/', 'a { color: #fff }')
 
-  const expected = ''
+  const atom = {
+    File,
+    config: {
+      get: () => ({ overlay: {} }),
+    },
+    styles: {
+      styleElementsBySourcePath: {},
+    },
+  }
 
-  write(inputFile, outputFile)
+  // Mock `apm test`
+  global.atom = atom
 
-  t.ok(outputFile.content === expected, 'write did not output correctly')
+  const expected = 'a { color: #fff }'
+
+  const assert = () =>
+    t.ok(outputFile.readSync() === expected, 'write did not output correctly')
+
+  write(inputFile, outputFile, assert)()
+})
+
+test('write works when results differ', t => {
+  // Emulate a file
+  class File {
+    constructor( location, content = '' ) {
+      this.content = content
+      this.path = location
+    }
+
+    create = () => new Promise(resolve => resolve(true))
+
+    readSync = () => this.content
+
+    writeSync = content => { this.content = content }
+  }
+
+  const path = join(__dirname, '..', 'css', 'index.css')
+  const inputFile = new File(path, 'a { color: #fff }')
+  const outputFile = new File('/')
+
+  const atom = {
+    File,
+    config: {
+      get: () => ({ overlay: {} }),
+    },
+    styles: {
+      styleElementsBySourcePath: {},
+    },
+  }
+
+  // Mock `apm test`
+  global.atom = atom
+
+  const expected = 'a { color: #fff }'
+
+  const assert = () =>
+    t.ok(outputFile.readSync() === expected, 'write did not output correctly')
+
+  write(inputFile, outputFile, assert)()
 })
 
 test('activate works', t => {
@@ -99,6 +162,7 @@ test('activate works', t => {
           },
         },
       },
+      get: () => ({ overlay: {} }),
       onDidChange: ( scope, callbackFn ) =>
         callbackFn({ newValue: atom.config.defaultSettings.flexicons }),
     },
