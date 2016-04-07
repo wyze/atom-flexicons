@@ -18,6 +18,7 @@
 @mixin ends styl;
 @mixin ends swift;
 @mixin ends ts;
+@mixin ends handlebars;
 
 @mixin path test;
 
