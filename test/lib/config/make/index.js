@@ -12,14 +12,18 @@ import isObject from 'lodash.isobject'
 import isString from 'lodash.isstring'
 import test from 'ava'
 
+const makeIconConfig = ( description, icons, title ) => ({
+  description,
+  icons,
+  title,
+})
+
+const jsConfig = makeIconConfig('.js', [ 'JavaScript' ], 'JavaScript')
+
 test('make works', t => {
   const icons = {
     js: {
-      config: {
-        description: '.js',
-        icons: [ 'JavaScript' ],
-        title: 'JavaScript',
-      },
+      config: jsConfig,
       type: 'ends',
     },
   }
@@ -66,11 +70,7 @@ test('makeConfig works', t => {
 })
 
 test('makeEnds works', t => {
-  const icon = {
-    description: '.js',
-    icons: [ 'JavaScript' ],
-    title: 'JavaScript',
-  }
+  const icon = jsConfig
   const config = makeEnds(icon)
 
   t.ok(isObject(config), 'config is not an object')
@@ -80,11 +80,7 @@ test('makeEnds works', t => {
 test('makeIcons works with ends type', t => {
   const icons = {
     js: {
-      config: {
-        description: '.js',
-        icons: [ 'JavaScript' ],
-        title: 'JavaScript',
-      },
+      config: jsConfig,
       type: 'ends',
     },
   }
@@ -100,11 +96,7 @@ test('makeIcons works with ends type', t => {
 test('makeIcons works with is type', t => {
   const icons = {
     travis: {
-      config: {
-        description: '.travis.yml',
-        icons: [ 'Travis' ],
-        title: 'Travis-CI',
-      },
+      config: makeIconConfig('.travis.yml', [ 'Travis' ], 'Travis-CI'),
       type: 'is',
     },
   }
@@ -120,11 +112,7 @@ test('makeIcons works with is type', t => {
 test('makeIcons works with path type', t => {
   const icons = {
     test: {
-      config: {
-        description: '/test/',
-        icons: [ 'AVA' ],
-        title: 'Test Files',
-      },
+      config: makeIconConfig('/test/', [ 'AVA' ], 'Test Files'),
       type: 'path',
     },
   }
@@ -140,11 +128,7 @@ test('makeIcons works with path type', t => {
 test('makeIcons works with starts type', t => {
   const icons = {
     eslint: {
-      config: {
-        description: '.eslint',
-        icons: [ 'ESLint' ],
-        title: 'ESLint',
-      },
+      config: makeIconConfig('.eslint', [ 'ESLint' ], 'ESLint'),
       type: 'starts',
     },
   }
@@ -160,11 +144,7 @@ test('makeIcons works with starts type', t => {
 test('makeIcons returns empty object without type', t => {
   const icons = {
     js: {
-      config: {
-        description: '.js',
-        icons: [ 'JavaScript' ],
-        title: 'JavaScript',
-      },
+      config: jsConfig,
     },
   }
   const result = makeIcons(icons)
@@ -173,11 +153,7 @@ test('makeIcons returns empty object without type', t => {
 })
 
 test('makeIs', t => {
-  const icon = {
-    description: '.travis.yml',
-    icons: [ 'Travis' ],
-    title: 'Travis-CI',
-  }
+  const icon = makeIconConfig('.travis.yml', [ 'Travis' ], 'Travis-CI')
   const config = makeIs(icon)
 
   t.ok(isObject(config), 'config is not an object')
@@ -185,11 +161,7 @@ test('makeIs', t => {
 })
 
 test('makePath', t => {
-  const icon = {
-    description: '/test/',
-    icons: [ 'AVA' ],
-    title: 'Test Files',
-  }
+  const icon = makeIconConfig('/test/', [ 'AVA' ], 'Test Files')
   const config = makePath(icon)
 
   t.ok(isObject(config), 'config is not an object')
@@ -197,11 +169,7 @@ test('makePath', t => {
 })
 
 test('makeStarts', t => {
-  const icon = {
-    description: '.eslint',
-    icons: [ 'ESLint' ],
-    title: 'ESLint',
-  }
+  const icon = makeIconConfig('.eslint', [ 'ESLint' ], 'ESLint')
   const config = makeStarts(icon)
 
   t.ok(isObject(config), 'config is not an object')
