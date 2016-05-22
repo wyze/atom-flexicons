@@ -65,11 +65,11 @@
     "nyc": "^6.4.0"
   },
   "dependencies": {
-    "lodash.mapvalues": "^4.3.0",
-    "postcss": "^5.0.19",
+    "lodash.mapvalues": "^4.4.0",
+    "postcss": "^5.0.21",
     "postcss-hexrgba": "^0.2.0",
     "postcss-mixins": "^4.0.1",
     "postcss-nested": "^1.0.0",
-    "postcss-url": "^5.1.1"
+    "postcss-url": "^5.1.2"
   }
 }
