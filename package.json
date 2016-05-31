@@ -50,7 +50,7 @@
     "flexicons.css"
   ],
   "devDependencies": {
-    "ava": "^0.14.0",
+    "ava": "^0.15.1",
     "babel-eslint": "^6.0.4",
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-stage-1": "^6.5.0",
