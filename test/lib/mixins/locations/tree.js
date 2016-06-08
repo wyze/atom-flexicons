@@ -29,7 +29,7 @@ const baseStyles = {
   height: 14,
   float: 'left',
   margin: '4px 8px 0 0',
-  background: 'url(\'JavaScript.png\') 0 0 no-repeat',
+  background: 'url(\'atom://flexicons/lib/icons/JavaScript.png\') 0 0 no-repeat',
   backgroundSize: 'contain',
 }
 
@@ -74,11 +74,11 @@ test('works with muted enabled', t => {
   const actual = tree(colors, 'JavaScript')
   const expected = {
     ...baseStyles,
-    WebkitMask: 'url(\'JavaScript.png\') 0 0 no-repeat',
+    WebkitMask: 'url(\'atom://flexicons/lib/icons/JavaScript.png\') 0 0 no-repeat',
     WebkitMaskSize: 'contain',
     background: `
     linear-gradient(rgba(#aaa, .7), rgba(#aaa, .7)),
-    url(\'JavaScript.png\') 0 0 no-repeat`,
+    url(\'atom://flexicons/lib/icons/JavaScript.png\') 0 0 no-repeat`,
     backgroundSize: 'contain',
   }
 
@@ -101,11 +101,11 @@ test('works with overlay enabled', t => {
   const actual = tree(colors, 'JavaScript')
   const expected = {
     ...baseStyles,
-    WebkitMask: 'url(\'JavaScript.png\') 0 0 no-repeat',
+    WebkitMask: 'url(\'atom://flexicons/lib/icons/JavaScript.png\') 0 0 no-repeat',
     WebkitMaskSize: 'contain',
     background: `
     linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 1)),
-    url(\'JavaScript.png\') 0 0 no-repeat`,
+    url(\'atom://flexicons/lib/icons/JavaScript.png\') 0 0 no-repeat`,
     backgroundSize: 'contain',
   }
 
@@ -121,7 +121,7 @@ test('works with git status enabled', t => {
   const makeColor = color => ({
     background: `
     linear-gradient(${color}, ${color}),
-    url(\'JavaScript.png\') 0 0 no-repeat`,
+    url(\'atom://flexicons/lib/icons/JavaScript.png\') 0 0 no-repeat`,
     backgroundSize: 'contain',
   })
 
@@ -131,7 +131,7 @@ test('works with git status enabled', t => {
   const expected = {
     ...baseStyles,
     '.file.status-added &,.file.status-modified &,.file.status-ignored &': {
-      WebkitMask: 'url(\'JavaScript.png\') 0 0 no-repeat',
+      WebkitMask: 'url(\'atom://flexicons/lib/icons/JavaScript.png\') 0 0 no-repeat',
       WebkitMaskSize: 'contain',
     },
     '.file.status-added &': makeColor('rgba(#0f0, .7)'),

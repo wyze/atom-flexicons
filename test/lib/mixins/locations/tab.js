@@ -31,7 +31,7 @@ const baseStyles = {
   verticalAlign: 'middle',
   marginRight: 6,
   marginTop: -2,
-  background: 'url(\'JavaScript.png\') 0 0 no-repeat',
+  background: 'url(\'atom://flexicons/lib/icons/JavaScript.png\') 0 0 no-repeat',
   backgroundSize: 'contain',
 }
 
@@ -76,11 +76,11 @@ test('works with muted enabled', t => {
   const actual = tab(colors, 'JavaScript')
   const expected = {
     ...baseStyles,
-    WebkitMask: 'url(\'JavaScript.png\') 0 0 no-repeat',
+    WebkitMask: 'url(\'atom://flexicons/lib/icons/JavaScript.png\') 0 0 no-repeat',
     WebkitMaskSize: 'contain',
     background: `
     linear-gradient(rgba(#aaa, .7), rgba(#aaa, .7)),
-    url(\'JavaScript.png\') 0 0 no-repeat`,
+    url(\'atom://flexicons/lib/icons/JavaScript.png\') 0 0 no-repeat`,
     backgroundSize: 'contain',
   }
 
@@ -103,11 +103,11 @@ test('works with overlay enabled', t => {
   const actual = tab(colors, 'JavaScript')
   const expected = {
     ...baseStyles,
-    WebkitMask: 'url(\'JavaScript.png\') 0 0 no-repeat',
+    WebkitMask: 'url(\'atom://flexicons/lib/icons/JavaScript.png\') 0 0 no-repeat',
     WebkitMaskSize: 'contain',
     background: `
     linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 1)),
-    url(\'JavaScript.png\') 0 0 no-repeat`,
+    url(\'atom://flexicons/lib/icons/JavaScript.png\') 0 0 no-repeat`,
     backgroundSize: 'contain',
   }
 
