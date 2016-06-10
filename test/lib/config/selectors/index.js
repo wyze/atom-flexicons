@@ -1,4 +1,4 @@
-import { ends, is, path, starts } from '../../../../lib/config/type'
+import { ends, is, path, starts } from '../../../../lib/config/selectors'
 import isArray from 'lodash.isarray'
 import isObject from 'lodash.isobject'
 import isString from 'lodash.isstring'
