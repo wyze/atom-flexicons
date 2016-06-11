@@ -20,8 +20,6 @@
 @mixin ends ts;
 @mixin ends handlebars;
 
-@mixin path test;
-
 @mixin starts git;
 @mixin starts eslintrc;
 @mixin starts license;
