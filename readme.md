@@ -9,8 +9,6 @@
 
 ## Install
 
-:warning: Package is not published to `apm` yet. :warning:
-
 ```shell
 $ apm install flexicons
 ```
@@ -25,11 +23,13 @@ $ apm link -d
 $ atom . -d
 ```
 
-## Build
+## Change Log
 
-```shell
-$ npm run build
-```
+[Full Change Log](changelog.md)
+
+### v1.0.0 (2016-06-13)
+
+- Initial release
 
 ## License
 
