@@ -12,7 +12,7 @@
   "main": "lib/index",
   "scripts": {
     "codecov": "nyc report -r text-lcov | codecov",
-    "lint": "eslint bin lib test",
+    "lint": "eslint lib test",
     "test": "nyc ava",
     "test:watch": "npm test -- --watch",
     "pretest": "npm run lint"
@@ -39,7 +39,11 @@
     "lib",
     "styles"
   ],
-  "keywords": [],
+  "keywords": [
+    "icons",
+    "flexible",
+    "file-icons"
+  ],
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
