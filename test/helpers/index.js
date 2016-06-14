@@ -8,6 +8,8 @@ class File {
 
   create = () => new Promise(resolve => resolve(true))
 
+  existsSync = () => false
+
   readSync = () => this.content
 
   writeSync = content => { this.content = content }
