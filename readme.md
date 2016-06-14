@@ -27,9 +27,9 @@ $ atom . -d
 
 [Full Change Log](changelog.md)
 
-### v1.0.0 (2016-06-13)
+### [v1.0.1](https://github.com/wyze/atom-flexicons/compare/v1.0.0...v1.0.1) (2016-06-13)
 
-- Initial release
+* Compile styles if this is the first run ([bcd1d47](https://github.com/wyze/atom-flexicons/commit/bcd1d47)), closes [#12](https://github.com/wyze/atom-flexicons/issues/12)
 
 ## License
 
