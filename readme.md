@@ -7,6 +7,10 @@
 
 > A flexible full-color icon package for use in Atom.
 
+## Screenshot
+
+![Examples](.github/media/examples-1.png)
+
 ## Install
 
 ```shell
