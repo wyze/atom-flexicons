@@ -29,10 +29,10 @@ test('make works', t => {
   }
   const config = make(icons)
 
-  t.ok(isObject(config), 'config is not an object')
-  t.ok(isObject(config.global), 'global is not an object')
-  t.ok(isObject(config.icons), 'icons is not an object')
-  t.ok(isObject(config.icons.properties.js), 'js is not an object')
+  t.truthy(isObject(config), 'config is not an object')
+  t.truthy(isObject(config.global), 'global is not an object')
+  t.truthy(isObject(config.icons), 'icons is not an object')
+  t.truthy(isObject(config.icons.properties.js), 'js is not an object')
 })
 
 test('makeConfig works', t => {
@@ -41,40 +41,40 @@ test('makeConfig works', t => {
   const enums = [ 'JavaScript', 'ES6' ]
   const config = makeConfig(title, description, enums)
 
-  t.ok(isObject(config), 'config is not an object')
-  t.ok(isArray(config.properties.icon.enum), 'enum is not an array')
-  t.same(
+  t.truthy(isObject(config), 'config is not an object')
+  t.truthy(isArray(config.properties.icon.enum), 'enum is not an array')
+  t.deepEqual(
     config.properties.icon.enum,
     [ 'JavaScript', 'ES6' ],
     'enum is not correct'
   )
-  t.ok(isString(config.properties.icon.default), 'default is not a string')
-  t.ok(
+  t.truthy(isString(config.properties.icon.default), 'default is not a string')
+  t.truthy(
     config.properties.icon.default === 'JavaScript', 'default is not correct'
   )
-  t.ok(
+  t.truthy(
     isString(config.properties.icon.description),
     'description is not a string'
   )
-  t.ok(
+  t.truthy(
     config.properties.icon.description === '.js',
     'description is not correct'
   )
-  t.ok(isString(config.properties.overlay.title), 'title is not a string')
-  t.ok(
+  t.truthy(isString(config.properties.overlay.title), 'title is not a string')
+  t.truthy(
     config.properties.overlay.title === 'JavaScript Overlay',
     'overlay title is not correct'
   )
-  t.ok(isString(config.title), 'title is not a string')
-  t.ok(config.title === 'JavaScript', 'title is not correct')
+  t.truthy(isString(config.title), 'title is not a string')
+  t.truthy(config.title === 'JavaScript', 'title is not correct')
 })
 
 test('makeEnds works', t => {
   const icon = jsConfig
   const config = makeEnds(icon)
 
-  t.ok(isObject(config), 'config is not an object')
-  t.ok(config.properties.icon.description === 'Extensions: .js')
+  t.truthy(isObject(config), 'config is not an object')
+  t.truthy(config.properties.icon.description === 'Extensions: .js')
 })
 
 test('makeIcons works with ends type', t => {
@@ -86,8 +86,8 @@ test('makeIcons works with ends type', t => {
   }
   const result = makeIcons(icons)
 
-  t.ok(isObject(result), 'did not return an object')
-  t.ok(
+  t.truthy(isObject(result), 'did not return an object')
+  t.truthy(
     result.js.properties.icon.description === 'Extensions: .js',
     'description not set properly for ends'
   )
@@ -102,8 +102,8 @@ test('makeIcons works with is type', t => {
   }
   const result = makeIcons(icons)
 
-  t.ok(isObject(result), 'did not return an object')
-  t.ok(
+  t.truthy(isObject(result), 'did not return an object')
+  t.truthy(
     result.travis.properties.icon.description === 'File name is: .travis.yml',
     'description not set properly for is'
   )
@@ -118,8 +118,8 @@ test('makeIcons works with path type', t => {
   }
   const result = makeIcons(icons)
 
-  t.ok(isObject(result), 'did not return an object')
-  t.ok(
+  t.truthy(isObject(result), 'did not return an object')
+  t.truthy(
     result.test.properties.icon.description === 'Path contains: /test/',
     'description not set properly for path'
   )
@@ -134,8 +134,8 @@ test('makeIcons works with starts type', t => {
   }
   const result = makeIcons(icons)
 
-  t.ok(isObject(result), 'did not return an object')
-  t.ok(
+  t.truthy(isObject(result), 'did not return an object')
+  t.truthy(
     result.eslint.properties.icon.description === 'File starts with: .eslint',
     'description not set properly for starts'
   )
@@ -149,29 +149,29 @@ test('makeIcons returns empty object without type', t => {
   }
   const result = makeIcons(icons)
 
-  t.same(result, { js: {} }, 'did not return empty object')
+  t.deepEqual(result, { js: {} }, 'did not return empty object')
 })
 
 test('makeIs', t => {
   const icon = makeIconConfig('.travis.yml', [ 'Travis' ], 'Travis-CI')
   const config = makeIs(icon)
 
-  t.ok(isObject(config), 'config is not an object')
-  t.ok(config.properties.icon.description === 'File name is: .travis.yml')
+  t.truthy(isObject(config), 'config is not an object')
+  t.truthy(config.properties.icon.description === 'File name is: .travis.yml')
 })
 
 test('makePath', t => {
   const icon = makeIconConfig('/test/', [ 'AVA' ], 'Test Files')
   const config = makePath(icon)
 
-  t.ok(isObject(config), 'config is not an object')
-  t.ok(config.properties.icon.description === 'Path contains: /test/')
+  t.truthy(isObject(config), 'config is not an object')
+  t.truthy(config.properties.icon.description === 'Path contains: /test/')
 })
 
 test('makeStarts', t => {
   const icon = makeIconConfig('.eslint', [ 'ESLint' ], 'ESLint')
   const config = makeStarts(icon)
 
-  t.ok(isObject(config), 'config is not an object')
-  t.ok(config.properties.icon.description === 'File starts with: .eslint')
+  t.truthy(isObject(config), 'config is not an object')
+  t.truthy(config.properties.icon.description === 'File starts with: .eslint')
 })

@@ -45,7 +45,7 @@ test('returns empty object when disabled', t => {
   const actual = tab(colors)
   const expected = {}
 
-  t.same(actual, expected, 'did not return empty object')
+  t.deepEqual(actual, expected, 'did not return empty object')
 })
 
 test('works with no options', t => {
@@ -61,7 +61,7 @@ test('works with no options', t => {
     ...baseStyles,
   }
 
-  t.same(actual, expected, 'did not return base styles')
+  t.deepEqual(actual, expected, 'did not return base styles')
 })
 
 test('works with muted enabled', t => {
@@ -84,7 +84,7 @@ test('works with muted enabled', t => {
     backgroundSize: 'contain',
   }
 
-  t.same(actual, expected, 'did not apply muted color')
+  t.deepEqual(actual, expected, 'did not apply muted color')
 })
 
 test('works with overlay enabled', t => {
@@ -111,7 +111,7 @@ test('works with overlay enabled', t => {
     backgroundSize: 'contain',
   }
 
-  t.same(actual, expected, 'did not apply overlay color')
+  t.deepEqual(actual, expected, 'did not apply overlay color')
 })
 
 test.todo('muted setting has higher presedence than overlay')

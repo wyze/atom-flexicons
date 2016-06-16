@@ -48,5 +48,5 @@ test('works', t => {
     },
   }
 
-  t.same(actual, expected, 'styles are not correct')
+  t.deepEqual(actual, expected, 'styles are not correct')
 })

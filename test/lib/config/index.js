@@ -11,13 +11,13 @@ test('types', t => {
     'starts',
   ]
 
-  t.ok(isObject(types), 'types is not an object')
+  t.truthy(isObject(types), 'types is not an object')
 
   Object.keys(types).forEach(key => {
     const config = types[key]
 
-    t.ok(isObject(config), 'config is not an object')
-    t.ok(isString(config.type), 'type is not a string')
-    t.ok(~options.indexOf(config.type), 'type is not in options')
+    t.truthy(isObject(config), 'config is not an object')
+    t.truthy(isString(config.type), 'type is not a string')
+    t.truthy(~options.indexOf(config.type), 'type is not in options')
   })
 })

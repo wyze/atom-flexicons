@@ -43,7 +43,7 @@ test('returns empty object when disabled', t => {
   const actual = tree(colors)
   const expected = {}
 
-  t.same(actual, expected, 'did not return empty object')
+  t.deepEqual(actual, expected, 'did not return empty object')
 })
 
 test('works with no options', t => {
@@ -59,7 +59,7 @@ test('works with no options', t => {
     ...baseStyles,
   }
 
-  t.same(actual, expected, 'did not return base styles')
+  t.deepEqual(actual, expected, 'did not return base styles')
 })
 
 test('works with muted enabled', t => {
@@ -82,7 +82,7 @@ test('works with muted enabled', t => {
     backgroundSize: 'contain',
   }
 
-  t.same(actual, expected, 'did not apply muted color')
+  t.deepEqual(actual, expected, 'did not apply muted color')
 })
 
 test('works with overlay enabled', t => {
@@ -109,7 +109,7 @@ test('works with overlay enabled', t => {
     backgroundSize: 'contain',
   }
 
-  t.same(actual, expected, 'did not apply overlay color')
+  t.deepEqual(actual, expected, 'did not apply overlay color')
 })
 
 test('works with git status enabled', t => {
@@ -139,7 +139,7 @@ test('works with git status enabled', t => {
     '.file.status-modified &': makeColor('rgba(#0aa, .7)'),
   }
 
-  t.same(actual, expected, 'did not apply git status color')
+  t.deepEqual(actual, expected, 'did not apply git status color')
 })
 
 test.todo('git status color has highest presedence')

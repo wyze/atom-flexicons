@@ -10,15 +10,18 @@ import { join } from 'path'
 import test from 'ava'
 
 test('has config', t => {
-  t.ok(typeof config === 'object', 'package does not export config')
+  t.truthy(typeof config === 'object', 'package does not export config')
 })
 
 test('will activate', t => {
-  t.ok(typeof activate === 'function', 'package does not export activate')
+  t.truthy(typeof activate === 'function', 'package does not export activate')
 })
 
 test('will deactivate', t => {
-  t.ok(typeof deactivate === 'function', 'package does not export deactivate')
+  t.truthy(
+    typeof deactivate === 'function',
+    'package does not export deactivate'
+  )
 })
 
 test('getStatusColors works', t => {
@@ -44,7 +47,7 @@ test('getStatusColors works', t => {
   const actual = getStatusColors()
   const expected = [ '#ffffff' ]
 
-  t.same(actual, expected, 'proper colors were not returned')
+  t.deepEqual(actual, expected, 'proper colors were not returned')
 })
 
 test('write works when results are same', t => {
@@ -82,7 +85,10 @@ test('write works when results are same', t => {
   const expected = 'a { color: #fff }'
 
   const assert = () =>
-    t.ok(outputFile.readSync() === expected, 'write did not output correctly')
+    t.truthy(
+      outputFile.readSync() === expected,
+      'write did not output correctly'
+    )
 
   write(inputFile, outputFile, assert)()
 })
@@ -122,7 +128,10 @@ test('write works when results differ', t => {
   const expected = 'a { color: #fff }'
 
   const assert = () =>
-    t.ok(outputFile.readSync() === expected, 'write did not output correctly')
+    t.truthy(
+      outputFile.readSync() === expected,
+      'write did not output correctly'
+    )
 
   write(inputFile, outputFile, assert)()
 })
