@@ -1,8 +1,8 @@
 import mock from 'mock-require'
 
-class File {
-  constructor( location ) {
-    this.content = ''
+export class File {
+  constructor( location, content = '' ) {
+    this.content = content
     this.path = location
   }
 

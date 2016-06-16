@@ -1,4 +1,4 @@
-import './helpers'
+import { File } from './helpers'
 import {
   activate,
   config,
@@ -51,26 +51,11 @@ test('getStatusColors works', t => {
 })
 
 test('write works when results are same', t => {
-  // Emulate a file
-  class File {
-    constructor( location, content = '' ) {
-      this.content = content
-      this.path = location
-    }
-
-    create = () => new Promise(resolve => resolve(true))
-
-    readSync = () => this.content
-
-    writeSync = content => { this.content = content }
-  }
-
   const path = join(__dirname, '..', 'css', 'index.css')
   const inputFile = new File(path, 'a { color: #fff }')
   const outputFile = new File('/', 'a { color: #fff }')
 
   const atom = {
-    File,
     config: {
       get: () => ({ overlay: {} }),
     },
@@ -94,26 +79,11 @@ test('write works when results are same', t => {
 })
 
 test('write works when results differ', t => {
-  // Emulate a file
-  class File {
-    constructor( location, content = '' ) {
-      this.content = content
-      this.path = location
-    }
-
-    create = () => new Promise(resolve => resolve(true))
-
-    readSync = () => this.content
-
-    writeSync = content => { this.content = content }
-  }
-
   const path = join(__dirname, '..', 'css', 'index.css')
   const inputFile = new File(path, 'a { color: #fff }')
   const outputFile = new File('/')
 
   const atom = {
-    File,
     config: {
       get: () => ({ overlay: {} }),
     },
@@ -137,21 +107,7 @@ test('write works when results differ', t => {
 })
 
 test('activate works', t => {
-  class File {
-    constructor( location ) {
-      this.content = ''
-      this.path = location
-    }
-
-    create = () => new Promise(resolve => resolve(true))
-
-    readSync = () => this.content
-
-    writeSync = content => { this.content = content }
-  }
-
   const atom = {
-    File,
     config: {
       defaultSettings: {
         flexicons: {
