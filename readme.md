@@ -27,6 +27,15 @@ $ apm link -d
 $ atom . -d
 ```
 
+## Settings
+
+### Global
+
+| Name | Type | Default | Description |
+|---|---|---|---|
+| Muted | Boolean | false | Applies grey overlay to icons. |
+| Git Status Colors | Boolean | true | Shows colors related to git status. |
+
 ## Change Log
 
 [Full Change Log](changelog.md)
