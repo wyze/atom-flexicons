@@ -36,6 +36,17 @@ $ atom . -d
 | Muted | Boolean | false | Applies grey overlay to icons. |
 | Git Status Colors | Boolean | true | Shows colors related to git status. |
 
+### Icons
+
+> Each icon has the following settings
+
+| Name | Type | Default | Description |
+|---|---|---|---|
+| Disable Icon | Boolean | false | Disables rendering the icon. |
+| Icon | Dropdown (String) | Varies | Choose which icon should render. |
+| Overlay Color | Color | (Disabled) | Would use chosen color for icon overlay. |
+| Overlay Enabled | Boolean | false | Enable/Disable icon color overlay. |
+
 ## Change Log
 
 [Full Change Log](changelog.md)
