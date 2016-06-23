@@ -1,3 +1,11 @@
+<a name="v1.0.3"></a>
+# [v1.0.3](https://github.com/wyze/atom-flexicons/compare/v1.0.2...v1.0.3) (2016-06-22)
+
+* Update dependencies ([52f3b46](https://github.com/wyze/atom-flexicons/commit/52f3b46))
+* Add documentation on icon settings to readme ([bd500f9](https://github.com/wyze/atom-flexicons/commit/bd500f9))
+* Add global settings info to readme ([b0d39c2](https://github.com/wyze/atom-flexicons/commit/b0d39c2))
+
+
 <a name="v1.0.2"></a>
 # [v1.0.2](https://github.com/wyze/atom-flexicons/compare/v1.0.1...v1.0.2) (2016-06-16)
 
