@@ -60,8 +60,8 @@
     "eslint": "^2.13.1",
     "eslint-config-airbnb": "^9.0.1",
     "eslint-config-wyze": "^2.0.0",
-    "eslint-plugin-import": "^1.10.2",
-    "eslint-plugin-jsx-a11y": "^1.5.5",
+    "eslint-plugin-import": "^1.11.0",
+    "eslint-plugin-jsx-a11y": "^2.0.1",
     "eslint-plugin-wyze": "^1.4.0",
     "lodash.isarray": "^4.0.0",
     "lodash.isobject": "^3.0.2",
@@ -71,7 +71,7 @@
   },
   "dependencies": {
     "lodash.mapvalues": "^4.4.0",
-    "postcss": "^5.0.21",
+    "postcss": "^5.1.0",
     "postcss-hexrgba": "^0.2.0",
     "postcss-mixins": "^5.0.0",
     "postcss-nested": "^1.0.0"
